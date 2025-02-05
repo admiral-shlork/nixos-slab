@@ -15,7 +15,7 @@
     packages = with pkgs; [
       audacity
       calibre
-      deadbeef-with-plugins
+      deadbeef
       deluge-gtk
       discord
       docker
@@ -31,8 +31,8 @@
       keepassxc
       libreoffice
       librewolf
-      lutris
-      mangohud
+      # lutris
+      # mangohud
       megasync
       nerdfonts
       obsidian
@@ -51,7 +51,6 @@
       wine
       # virtualbox
       vivaldi
-      veracrypt
       vlc
       yacreader
     ];
