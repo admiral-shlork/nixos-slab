@@ -12,6 +12,9 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 
   programs.firefox.enable = true;
