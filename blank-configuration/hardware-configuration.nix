@@ -14,7 +14,7 @@
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   hardware.bluetooth.enable = true;
