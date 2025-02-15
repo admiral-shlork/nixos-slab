@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "brlaser_nixpkgs": {
-      "locked": {
-        "lastModified": 1728570620,
-        "narHash": "sha256-VtsuxXrhlKEmPqkpUMzaztVhZYFzxghKtSG/YHGw+38=",
-        "owner": "ahydronous",
-        "repo": "nixpkgs",
-        "rev": "e4b52e42c6f6ededdf64a412393fc3d6bd681555",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ahydronous",
-        "repo": "nixpkgs",
-        "rev": "e4b52e42c6f6ededdf64a412393fc3d6bd681555",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -54,26 +38,8 @@
     },
     "root": {
       "inputs": {
-        "brlaser_nixpkgs": "brlaser_nixpkgs",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "veracrypt_nixpkgs": "veracrypt_nixpkgs"
-      }
-    },
-    "veracrypt_nixpkgs": {
-      "locked": {
-        "lastModified": 1737274611,
-        "narHash": "sha256-tmD7875tu1P0UvhI3Q/fXvIe8neJo7H9ZrPQ+QF7Q3E=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "50165c4f7eb48ce82bd063e1fb8047a0f515f8ce",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "50165c4f7eb48ce82bd063e1fb8047a0f515f8ce",
-        "type": "github"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

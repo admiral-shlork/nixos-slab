@@ -1,16 +1,11 @@
-{ veracrypt_nixpkgs, config, pkgs, ... }:
-let
-  veracrypt_pkgs = import veracrypt_nixpkgs {
-    system = config.nixpkgs.system;
-    config.allowUnfree = true;
-  };
-  veracrypt = veracrypt_pkgs.veracrypt;
-in
+{ config, pkgs, ... }:
 {
   services.xserver.enable = true;
 
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+
+  services.openssh.enable = true;
 
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
 
@@ -22,6 +17,7 @@ in
     brlaser
     git
     dconf-editor
+    ghostty
     gnome-extension-manager
     gnomeExtensions.appindicator
     gnomeExtensions.caffeine
@@ -34,6 +30,7 @@ in
     terminator
     veracrypt
     vim
+    virt-manager
     vscodium
     wget
   ];
@@ -73,9 +70,4 @@ in
   #   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   #   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   # };
-
-  # virtualisation.virtualbox.host.enable = true;
-  # users.extraGroups.vboxusers.members = [ "whatever" ];
-  # virtualisation.virtualbox.guest.enable = true;
-  
 }

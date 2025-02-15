@@ -2,10 +2,10 @@
 
 {
   boot = {
-    initrd.availableKernelModules = [ "ahci" "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-    #initrd.kernelModules = [ "dm-snapshot" ];
-    initrd.kernelModules = [ ];
-    # kernelModules = [ "kvm-amd" ];
+    initrd.availableKernelModules = [ "ahci" "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "rtsx_usb_sdmmc" ];
+    initrd.kernelModules = [ "dm-snapshot" ];
+    # initrd.kernelModules = [ ];
+    kernelModules = [ "kvm-intel" ];
     kernelPackages = pkgs.linuxPackages_6_12; #kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "kvm.enable_virt_at_load=0" ];
     extraModulePackages = [ ];
@@ -15,7 +15,7 @@
     };
 
     initrd.luks.devices = let
-      luks_root_uuid = "a6f03b03-af9e-479f-b7b5-fa4b37b4ce4b";
+      luks_root_uuid = "99797e14-d02a-4073-b511-b8845fd0cef7";
     in {
       # LUKS container with root partition
       "luks-${luks_root_uuid}" = {
@@ -27,8 +27,8 @@
 
   # Configuration for LUKS containers and key files
   environment.etc.crypttab.text = ''
-    cryptslab1 UUID=1fa0b0d6-231b-484f-975e-bb20f0b6febd /root/slab1.key
-    cryptslab2 UUID=122683dc-1b5b-45e6-9a6f-85def4e4d3c0 /root/slab2.key
+    cryptslab1 UUID=5fc74d13-c55e-4dba-b9c0-3ef1b9171b35 /root/slab1.key
+    cryptslab2 UUID=37f13c22-7daa-4a82-a9e0-f4e639a85ef1 /root/slab2.key
   '';
 
   # swapDevices = [{ 

@@ -88,8 +88,8 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
       binding = "<Super>w";
-      command = "/run/current-system/sw/bin/terminator";
-      name = "Terminator";
+      command = "ghostty";
+      name = "Ghostty";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
       binding = "Print";
@@ -137,7 +137,7 @@
     # };
     # Date-menu-formatter preferences
     "org/gnome/shell/extensions/date-menu-formatter" = {
-      pattern = "dd\nMM\nyy\nE\nHH\nmm\nss";
+      pattern = "EEEE, d MMMM yyyy   ☉   HH:MM:SS";
       text-align = "right";
       update-level = "2";
     };

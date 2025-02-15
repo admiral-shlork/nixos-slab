@@ -30,7 +30,7 @@
     home = "/home/whatever";
     isNormalUser = true;
     description = "whatever";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     ];
   };

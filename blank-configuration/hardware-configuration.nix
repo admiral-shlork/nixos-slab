@@ -2,8 +2,9 @@
 
 {
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.config.nvidia.acceptLicense = true;
 
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   services.xserver.videoDrivers = ["nvidia"]; 
   hardware.graphics.enable = true;
@@ -13,7 +14,7 @@
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
   };
 
   hardware.bluetooth.enable = true;
