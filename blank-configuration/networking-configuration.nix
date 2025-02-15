@@ -5,4 +5,5 @@
   networking.useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [ 8096 ];
+  networking.firewall.allowedUDPPorts = [ 8096 ];
 }
