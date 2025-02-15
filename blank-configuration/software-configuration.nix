@@ -12,7 +12,6 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   services.udev.packages = with pkgs; [ gnome-settings-daemon ];
@@ -38,6 +37,7 @@ in
     terminator
     veracrypt
     vim
+    virt-manager
     vscodium
     wget
   ];
@@ -76,10 +76,5 @@ in
   #   remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
   #   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   #   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  # };
-
-  # virtualisation.virtualbox.host.enable = true;
-  # users.extraGroups.vboxusers.members = [ "whatever" ];
-  # virtualisation.virtualbox.guest.enable = true;
-  
+  # }; 
 }
