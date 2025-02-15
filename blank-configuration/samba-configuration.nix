@@ -9,33 +9,30 @@ services.samba = {
       browseable = "yes";
       "read only" = "no";
       "valid users" = "whatever";
-      "force group" = "sharedgroup";
     };
     slab2 = {
       path = "/home/whatever/mnt/slab2";
       browseable = "yes";
       "read only" = "no";
       "valid users" = "whatever";
-      "force group" = "sharedgroup";
     };
     eldrajw = {
       path = "/home/whatever/mnt/slab1/eldrajw";
       browseable = "yes";
       "read only" = "no";
       "valid users" = "whatever, justyna";
-      "force group" = "sharedgroup";
     };
   };
   settings = {
     global = {
       "workgroup" = "WORKGROUP";
-      "server string" = "smbnix";
-      "netbios name" = "smbnix";
+      "server string" = "slab";
+      "netbios name" = "slab";
       "security" = "user";
       #"use sendfile" = "yes";
       #"max protocol" = "smb2";
       # note: localhost is the ipv6 localhost ::1
-      "hosts allow" = "192.168.0. 127.0.0.1 localhost";
+      "hosts allow" = "10.0.0. 127.0.0.1 localhost";
       "hosts deny" = "0.0.0.0/0";
       "guest account" = "nobody";
       "map to guest" = "bad user";
