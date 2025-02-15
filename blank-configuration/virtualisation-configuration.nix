@@ -10,8 +10,8 @@
       rootless = {
         enable = true;
         setSocketVariable = true;
-      }
-    }
+      };
+    };
   };
   users.groups.libvirtd.members = ["root" "whatever" ];
 }
