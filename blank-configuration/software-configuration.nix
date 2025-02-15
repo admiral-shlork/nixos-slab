@@ -25,6 +25,7 @@ in
     brlaser
     git
     dconf-editor
+    ghostty
     gnome-extension-manager
     gnomeExtensions.appindicator
     gnomeExtensions.caffeine
