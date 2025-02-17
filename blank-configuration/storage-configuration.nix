@@ -27,6 +27,7 @@
 
   # Configuration for LUKS containers and key files
   environment.etc.crypttab.text = ''
+    cryptslab0 UUID=05c46ba4-7a88-4290-8754-11160e363fc3 /root/slab0.key
     cryptslab1 UUID=5fc74d13-c55e-4dba-b9c0-3ef1b9171b35 /root/slab1.key
     cryptslab2 UUID=37f13c22-7daa-4a82-a9e0-f4e639a85ef1 /root/slab2.key
   '';
@@ -46,6 +47,11 @@
     { device = "/dev/disk/by-label/BOOT";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
+    };
+
+  fileSystems."/home/whatever/mnt/slab0" =
+    { device = "/dev/disk/by-label/slab0";
+      fsType = "ext4";
     };
 
   fileSystems."/home/whatever/mnt/slab1" =
