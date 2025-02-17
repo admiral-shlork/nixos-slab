@@ -27,6 +27,7 @@ services.samba = {
       browseable = "yes";
       "read only" = "no";
       "valid users" = "whatever justyna";
+      "force user" = "whatever"
     };
   };
   settings = {
