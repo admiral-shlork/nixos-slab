@@ -26,7 +26,7 @@ services.samba = {
       path = "/home/whatever/mnt/slab1/eldrajw";
       browseable = "yes";
       "read only" = "no";
-      "valid users" = "whatever justyna";
+      # "valid users" = "whatever justyna";
     };
   };
   settings = {
