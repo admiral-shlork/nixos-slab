@@ -40,7 +40,7 @@
     # Desktop background
     "org/gnome/desktop/background" = {
       picture-options = "none";
-      primary-color = "#000000";
+      primary-color = "#282828";
     };
     # Disable lock screen notifications
     "org/gnome/desktop/notifications" = {
