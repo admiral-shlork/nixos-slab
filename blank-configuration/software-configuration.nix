@@ -15,6 +15,7 @@
   environment.systemPackages = with pkgs; [
     appimage-run
     brlaser
+    bitcoin
     git
     dconf-editor
     ghostty
