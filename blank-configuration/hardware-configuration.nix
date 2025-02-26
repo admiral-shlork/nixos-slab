@@ -17,6 +17,14 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  # CUDA
+  systemd.services.nvidia-control-devices = {
+    wantedBy = [
+      "multi-user.target"
+    ];
+    serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11}/bin/nvidia-smi";
+  };
+
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
