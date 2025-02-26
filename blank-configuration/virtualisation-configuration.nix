@@ -7,7 +7,7 @@
     };
     docker = {
       enable = true;
-      extraOptions = "--gpus=all";
+      enableNvidia = true;
     };
   };
   users.groups.libvirtd.members = ["root" "whatever" ];
