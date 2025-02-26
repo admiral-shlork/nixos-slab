@@ -22,7 +22,7 @@
     wantedBy = [
       "multi-user.target"
     ];
-    serviceConfig.ExecStart = "${pkgs.linuxPackages.nvidia_x11}/bin/nvidia-smi";
+    serviceConfig.ExecStart = "/run/current-system/sw/bin/nvidia-smi";
   };
 
   hardware.bluetooth.enable = true;
