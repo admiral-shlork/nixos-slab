@@ -17,7 +17,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  hardware.nvidia-container = {
+  hardware.nvidia-container-toolkit = {
     enable = true;
     package = pkgs.nvidia-docker;
   };
