@@ -19,8 +19,8 @@
 
   hardware.nvidia-container = {
     enable = true;
-    package = pkgs.nvidia-docker
-  }
+    package = pkgs.nvidia-docker;
+  };
 
   # CUDA
   systemd.services.nvidia-control-devices = {
