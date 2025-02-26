@@ -17,6 +17,19 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  hardware.nvidia-container-toolkit = {
+    enable = true;
+    package = pkgs.nvidia-docker;
+  };
+
+  # CUDA
+  systemd.services.nvidia-control-devices = {
+    wantedBy = [
+      "multi-user.target"
+    ];
+    script = "/run/current-system/sw/bin/nvidia-smi";
+  };
+
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
