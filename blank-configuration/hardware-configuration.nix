@@ -27,7 +27,7 @@
     wantedBy = [
       "multi-user.target"
     ];
-    serviceConfig.ExecStart = "/run/current-system/sw/bin/nvidia-smi";
+    script = "/run/current-system/sw/bin/nvidia-smi";
   };
 
   hardware.bluetooth.enable = true;
