@@ -15,6 +15,10 @@
     open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    container = {
+      enable = true;
+      package = pkgs.nvidia-docker;
+    };
   };
 
   # CUDA
