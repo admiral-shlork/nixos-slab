@@ -27,6 +27,7 @@
     gnomeExtensions.night-theme-switcher
     gnomeExtensions.no-overview
     home-manager
+    htop
     nh
     terminator
     veracrypt
