@@ -23,7 +23,7 @@ services.samba = {
       "valid users" = "whatever";
     };
     eldrajw = {
-      path = "/home/whatever/mnt/slab1/eldrajw";
+      path = "/home/whatever/mnt/slab0/eldrajw";
       browseable = "yes";
       "read only" = "no";
       "valid users" = "whatever justyna";
