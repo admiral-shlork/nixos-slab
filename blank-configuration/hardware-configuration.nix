@@ -20,7 +20,6 @@
   hardware.nvidia-container-toolkit = {
     enable = true;
     package = pkgs.nvidia-docker;
-    tools = true;
   };
 
   # CUDA
