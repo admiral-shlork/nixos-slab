@@ -34,7 +34,6 @@
       # lutris
       # mangohud
       megasync
-      nerdfonts
       obsidian
       parsec-bin
       protonvpn-gui
