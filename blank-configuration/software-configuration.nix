@@ -29,6 +29,7 @@
     home-manager
     htop
     nh
+    rustic
     terminator
     veracrypt
     vim
