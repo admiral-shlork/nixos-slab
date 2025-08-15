@@ -30,6 +30,7 @@
     htop
     nh
     rustic
+    screen
     terminator
     veracrypt
     vim
