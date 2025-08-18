@@ -56,17 +56,17 @@
       fsType = "ext4";
     };
 
-  fileSystems."/home/whatever/mnt/pod1" =
-    { device = "/dev/disk/by-label/pod1";
-      fsType = "ext4";
-      neededForBoot = false;
-    };
+  # fileSystems."/home/whatever/mnt/pod1" =
+  #   { device = "/dev/disk/by-label/pod1";
+  #     fsType = "ext4";
+  #     neededForBoot = false;
+  #   };
 
-  fileSystems."/home/whatever/mnt/pod2" =
-    { device = "/dev/disk/by-label/pod2";
-      fsType = "ext4";
-      neededForBoot = false;
-    };
+  # fileSystems."/home/whatever/mnt/pod2" =
+  #   { device = "/dev/disk/by-label/pod2";
+  #     fsType = "ext4";
+  #     neededForBoot = false;
+  #   };
 
   fileSystems."/home/whatever/mnt/slab1" =
     { device = "/dev/disk/by-label/slab1";
