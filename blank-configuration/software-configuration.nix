@@ -29,6 +29,8 @@
     home-manager
     htop
     nh
+    nvidia-container-toolkit
+    nvidia-docker
     rustic
     screen
     terminator
