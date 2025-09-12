@@ -35,7 +35,7 @@
   '';
 
   # swapDevices = [{ 
-  #     device = "/dev/disk/by-uuid/c30a3550-ab3b-4820-afc7-b833f4f3b36c";
+      # device = "/dev/disk/by-uuid/c30a3550-ab3b-4820-afc7-b833f4f3b36c";
       # device = "/swapfile";
       # size = 64 * 1024;
   #   }];
@@ -56,18 +56,6 @@
       fsType = "ext4";
     };
 
-  # fileSystems."/home/whatever/mnt/pod1" =
-  #   { device = "/dev/disk/by-label/pod1";
-  #     fsType = "ext4";
-  #     neededForBoot = false;
-  #   };
-
-  # fileSystems."/home/whatever/mnt/pod2" =
-  #   { device = "/dev/disk/by-label/pod2";
-  #     fsType = "ext4";
-  #     neededForBoot = false;
-  #   };
-
   fileSystems."/home/whatever/mnt/slab1" =
     { device = "/dev/disk/by-label/slab1";
       fsType = "ext4";
@@ -76,5 +64,23 @@
   fileSystems."/home/whatever/mnt/slab2" =
     { device = "/dev/disk/by-label/slab2";
       fsType = "ext4";
+    };
+
+  fileSystems."/home/whatever/mnt/pod1" =
+    { device = "/dev/disk/by-label/pod1";
+      fsType = "ext4";
+      neededForBoot = false;
+      options = [
+        "nofail"
+      ];
+    };
+
+  fileSystems."/home/whatever/mnt/pod2" =
+    { device = "/dev/disk/by-label/pod2";
+      fsType = "ext4";
+      neededForBoot = false;
+      options = [
+        "nofail"
+      ];
     };
 }
