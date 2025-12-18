@@ -18,11 +18,11 @@
       dropbox
       easytag
       evince
-      floorp
+      #floorp
       gnome-screenshot
       keepassxc
       libreoffice
-      librewolf
+      #librewolf
       protonvpn-gui
       python3
       python311Packages.pip
