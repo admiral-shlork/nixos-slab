@@ -21,10 +21,10 @@
       keepassxc
       libreoffice
       #librewolf
+      nicotine-plus
       protonvpn-gui
       python3
       python311Packages.pip
-      soulseekqt
       soundconverter
       # steam
       winbox
