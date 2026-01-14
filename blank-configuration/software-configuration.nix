@@ -70,15 +70,6 @@
       yelp
     ]);
 
-  documentation = {
-    enable = mkDefault false;
-    doc.enable = mkDefault false;
-    info.enable = mkDefault false;
-    # man.enable = mkDefault false;
-    nixos.enable = mkDefault false;
-  };
-
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
