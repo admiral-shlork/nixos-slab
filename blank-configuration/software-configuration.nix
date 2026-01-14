@@ -29,8 +29,8 @@
     home-manager
     htop
     nh
-    nvidia-container-toolkit
-    nvidia-docker
+    # nvidia-container-toolkit
+    # nvidia-docker
     rustic
     screen
     terminator
@@ -69,6 +69,15 @@
       totem
       yelp
     ]);
+
+  documentation = {
+    enable = mkDefault false;
+    doc.enable = mkDefault false;
+    info.enable = mkDefault false;
+    # man.enable = mkDefault false;
+    nixos.enable = mkDefault false;
+  };
+
 
   programs.steam = {
     enable = true;

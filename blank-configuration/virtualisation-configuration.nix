@@ -9,6 +9,6 @@
       enable = true;
     };
   };
-  hardware.nvidia-container-toolkit.enable = true;
+  # hardware.nvidia-container-toolkit.enable = true;
   users.groups.libvirtd.members = ["root" "whatever" ];
 }
