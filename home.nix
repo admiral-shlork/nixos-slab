@@ -16,7 +16,6 @@
       docker
       dropbox
       easytag
-      evince
       #floorp
       gnome-screenshot
       keepassxc
