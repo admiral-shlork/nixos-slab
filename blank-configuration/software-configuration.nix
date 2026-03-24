@@ -15,6 +15,7 @@
   environment.systemPackages = with pkgs; [
     appimage-run
     brlaser
+    btop
     bitcoin
     git
     dconf-editor
@@ -27,7 +28,6 @@
     gnomeExtensions.night-theme-switcher
     gnomeExtensions.no-overview
     home-manager
-    htop
     nh
     nvidia-container-toolkit
     nvidia-docker
