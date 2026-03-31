@@ -7,7 +7,8 @@
     # initrd.kernelModules = [ ];
     kernelModules = [ "kvm-intel" ];
     # kernelPackages = pkgs.linuxPackages_6_12; #kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "kvm.enable_virt_at_load=0" ];
+    kernelParams = [ "kvm.enable_virt_at_load=0" "fbcon=rotate:3" ];
+    
     extraModulePackages = [ ];
     loader = {
       systemd-boot.enable = true;
