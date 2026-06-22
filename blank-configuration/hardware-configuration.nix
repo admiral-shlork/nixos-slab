@@ -1,28 +1,40 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, modulesPath, pkgs, ... }:
 
 {
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  nixpkgs.config.nvidia.acceptLicense = true;
-
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  services.xserver.videoDrivers = ["nvidia"]; 
-  hardware.graphics.enable = true;
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware = {
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    graphics.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+    nvidia-container-toolkit = {
+      enable = true;
+      package = pkgs.nvidia-docker;
+    };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
 
-  hardware.nvidia-container-toolkit = {
-    enable = true;
-    package = pkgs.nvidia-docker;
+  services = {
+    xserver.videoDrivers = ["nvidia"];
+    blueman.enable = true;
+    printing.enable = true;
+    pulseaudio.enable = false;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
   };
 
-  # CUDA
   systemd.services.nvidia-control-devices = {
     wantedBy = [
       "multi-user.target"
@@ -30,18 +42,5 @@
     script = "/run/current-system/sw/bin/nvidia-smi";
   };
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
-
-  services.printing.enable = true;
-
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 }

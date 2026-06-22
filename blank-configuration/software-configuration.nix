@@ -1,48 +1,85 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
-  services.xserver.enable = true;
+  services = {
+    xserver.enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+    openssh.enable = true;
+    udev.packages = with pkgs; [ gnome-settings-daemon ];
+    prometheus.exporters.node = {
+      enable = true;
+      port = 9000;
+      enabledCollectors = [
+        "cpu"
+        "cpufreq"
+        "diskstats"
+        "ethtool"
+        "filesystem"
+        "hwmon"
+        "loadavg"
+        "meminfo"
+        "nvme"
+        "os"
+        "softirqs"
+        "systemd"
+        "vmstat"
+      ];
+      extraFlags = [ "--collector.ntp.protocol-version=4" "--no-collector.mdadm" ];
+    };
+  };
 
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  programs = {
+    firefox.enable = true;
+    direnv.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
+    };
+  };
 
-  services.openssh.enable = true;
-
-  services.udev.packages = with pkgs; [ gnome-settings-daemon ];
-
-  programs.firefox.enable = true;
-  programs.direnv.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    appimage-run
-    brlaser
-    btop
-    bitcoin
-    git
-    dconf-editor
-    ghostty
-    gnome-extension-manager
-    gnomeExtensions.appindicator
-    gnomeExtensions.caffeine
-    gnomeExtensions.dash-to-panel
-    gnomeExtensions.date-menu-formatter
-    gnomeExtensions.night-theme-switcher
-    gnomeExtensions.no-overview
-    home-manager
-    nh
-    nvidia-container-toolkit
-    nvidia-docker
-    rustic
-    screen
-    terminator
-    veracrypt
-    vim
-    virt-manager
-    vscodium
-    wget
-  ];
-
-  environment.gnome.excludePackages =
-    (with pkgs; [
+  environment = {
+    systemPackages = with pkgs; [
+      appimage-run
+      bitcoin
+      brlaser
+      btop
+      dconf-editor
+      docker
+      dropbox
+      ghostty
+      git
+      gnome-extension-manager
+      gnomeExtensions.appindicator
+      gnomeExtensions.caffeine
+      gnomeExtensions.dash-to-panel
+      gnomeExtensions.date-menu-formatter
+      gnomeExtensions.night-theme-switcher
+      gnomeExtensions.no-overview
+      home-manager
+      keepassxc
+      libreoffice
+      nh
+      nicotine-plus
+      nvidia-container-toolkit
+      nvidia-docker
+      protonvpn-gui
+      python3
+      rustic
+      screen
+      veracrypt
+      vim
+      virt-manager
+      vivaldi
+      vlc
+      vscodium
+      wget
+      winbox
+      wine
+      yacreader
+    ];
+    gnome.excludePackages = (with pkgs; [
       atomix
       cheese
       decibels
@@ -71,12 +108,6 @@
       totem
       yelp
     ]);
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
   fonts.packages = [
@@ -84,33 +115,8 @@
     pkgs.nerd-fonts.droid-sans-mono
   ];
 
-  # https://nixos.org/manual/nixos/stable/#module-services-prometheus-exporters
-  # https://github.com/NixOS/nixpkgs/blob/nixos-24.05/nixos/modules/services/monitoring/prometheus/exporters.nix
-  services.prometheus.exporters.node = {
-    enable = true;
-    port = 9000;
-    # For the list of available collectors, run, depending on your install:
-    # - Flake-based: nix run nixpkgs#prometheus-node-exporter -- --help
-    # - Classic: nix-shell -p prometheus-node-exporter --run "node_exporter --help"
-    enabledCollectors = [
-      "cpu"
-      "cpufreq"
-      "diskstats"
-      "ethtool"   
-      "filesystem"
-      "hwmon"
-      "loadavg"
-      "meminfo"
-      "nvme"
-      "os"
-      "softirqs"
-      "systemd"
-      "vmstat"
-    ];
-    # You can pass extra options to the exporter using `extraFlags`, e.g.
-    # to configure collectors or disable those enabled by default.
-    # Enabling a collector is also possible using "--collector.[name]",
-    # but is otherwise equivalent to using `enabledCollectors` above.
-    extraFlags = [ "--collector.ntp.protocol-version=4" "--no-collector.mdadm" ];
+  systemd.services.prometheus-node-exporter.serviceConfig = {
+    RestrictNamespaces = lib.mkForce false;
+    ProtectHome = lib.mkForce false;
   };
 }

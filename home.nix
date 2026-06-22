@@ -12,28 +12,7 @@
     username = "whatever";
     homeDirectory = "/home/whatever";
     stateVersion = "24.11";
-    packages = with pkgs; [
-      docker
-      dropbox
-      easytag
-      #floorp
-      gnome-screenshot
-      keepassxc
-      libreoffice
-      #librewolf
-      nicotine-plus
-      protonvpn-gui
-      python3
-      python311Packages.pip
-      soundconverter
-      # steam
-      winbox
-      wine
-      # virtualbox
-      vivaldi
-      vlc
-      yacreader
-    ];
+    packages = with pkgs; [ ];
   };
 
   programs.bash = {
