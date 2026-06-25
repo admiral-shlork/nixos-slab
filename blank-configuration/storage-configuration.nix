@@ -48,10 +48,10 @@
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
-    "/home/whatever/mnt/slab0" = {
-      device = "/dev/disk/by-label/slab0";
-      fsType = "ext4";
-    };
+    # "/home/whatever/mnt/slab0" = {
+    #   device = "/dev/disk/by-label/slab0";
+    #   fsType = "ext4";
+    # };
     "/home/whatever/mnt/slab1" = {
       device = "/dev/disk/by-label/slab1";
       fsType = "ext4";
@@ -60,21 +60,21 @@
       device = "/dev/disk/by-label/slab2";
       fsType = "ext4";
     };
-    "/home/whatever/mnt/pod1" = {
-      device = "/dev/disk/by-label/pod1";
-      fsType = "ext4";
-      neededForBoot = false;
-      options = [
-        "nofail"
-      ];
-    };
-    "/home/whatever/mnt/pod2" = {
-      device = "/dev/disk/by-label/pod2";
-      fsType = "ext4";
-      neededForBoot = false;
-      options = [
-        "nofail"
-      ];
-    };
+    # "/home/whatever/mnt/pod1" = {
+    #   device = "/dev/disk/by-label/pod1";
+    #   fsType = "ext4";
+    #   neededForBoot = false;
+    #   options = [
+    #     "nofail"
+    #   ];
+    # };
+    # "/home/whatever/mnt/pod2" = {
+    #   device = "/dev/disk/by-label/pod2";
+    #   fsType = "ext4";
+    #   neededForBoot = false;
+    #   options = [
+    #     "nofail"
+    #   ];
+    # };
   };
 }
