@@ -64,7 +64,7 @@
       nicotine-plus
       nvidia-container-toolkit
       nvidia-docker
-      protonvpn-gui
+      proton-vpn
       python3
       rustic
       screen
