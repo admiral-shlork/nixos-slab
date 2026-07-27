@@ -6,11 +6,13 @@
     graphics.enable = true;
     nvidia = {
       modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
       open = false;
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+      powerManagement = {
+        enable = false;
+        finegrained = false;
+      };
     };
     nvidia-container-toolkit = {
       enable = true;
@@ -29,8 +31,10 @@
     pulseaudio.enable = false;
     pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
+      alsa = { 
+        enable = true;
+        support32Bit = true;
+      };
       pulse.enable = true;
     };
   };
